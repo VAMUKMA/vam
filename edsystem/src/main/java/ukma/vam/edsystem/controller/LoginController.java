@@ -15,9 +15,9 @@ public class LoginController {
 	 *            URL of main page
 	 * @return name of main page
 	 * */
-	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String welcomePage(Model model){
-		return "main";
+		return "index";
 	}
 	
 }
