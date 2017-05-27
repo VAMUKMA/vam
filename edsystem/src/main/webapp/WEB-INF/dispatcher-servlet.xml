@@ -21,7 +21,7 @@
 	<bean id="viewResolver"
 		  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/WEB-INF/views/</value>
+			<value>/static/js/views/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
@@ -29,5 +29,6 @@
 	</bean>
 	
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/static/**" location="/static/" />
 	<mvc:annotation-driven />
 </beans>
