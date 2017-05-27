@@ -1,6 +1,6 @@
 package ukma.vam.edsystem.entity;
 
-public class Test {
+public class Tests {
 
 	private Long test_id;
 	
@@ -8,11 +8,11 @@ public class Test {
 	
 	private Chapter chapter;
 	
-	public Test(){
+	public Tests(){
 		chapter = new Chapter();
 	}
 	
-	public Test(String name, Long chapter_id){
+	public Tests(String name, Long chapter_id){
 		this.name = name;
 		if(chapter==null)
 			chapter = new Chapter();
