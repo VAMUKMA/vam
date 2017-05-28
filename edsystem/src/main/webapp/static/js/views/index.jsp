@@ -49,5 +49,6 @@
 	<script src="/edsystem/resources/angular-route/angular-route.js"></script>
 	<script src="/edsystem/static/js/views/main.js"></script>
 	<script src="/edsystem/static/js/views/routes.js"></script>
+	<script src="/edsystem/static/js/views/modules/signup/controller.js"></script>
 </body>
 </html>
