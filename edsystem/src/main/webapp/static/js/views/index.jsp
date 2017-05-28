@@ -3,6 +3,8 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="/edsystem/resources/css/bootstrap.min.css">
+<link rel="shortcut icon" href="/edsystem/resources/img/favicon.ico"
+	type="image/ico">
 
 <script src="/edsystem/resources/js/jquery.js"></script>
 
@@ -17,7 +19,11 @@
 
 </head>
 <body>
-
+	<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    
+  </div>
+</nav>
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 
