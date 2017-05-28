@@ -19,11 +19,9 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    
-  </div>
-</nav>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container"></div>
+	</nav>
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 
@@ -56,5 +54,6 @@
 	<script src="/edsystem/static/js/views/main.js"></script>
 	<script src="/edsystem/static/js/views/routes.js"></script>
 	<script src="/edsystem/static/js/views/modules/signup/controller.js"></script>
+	<script src="/edsystem/static/js/views/modules/signin/controller.js"></script>
 </body>
 </html>

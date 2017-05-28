@@ -27,6 +27,18 @@ public class UserRestController {
 	@Autowired
     UserService userService;
 	
+	 @RequestMapping(value = "/home", method = RequestMethod.POST)
+	    public ResponseEntity<Void> homePage() {
+
+	        return new ResponseEntity<Void>(HttpStatus.OK);
+	    }
+	 
+	 @RequestMapping(value = "/home", method = RequestMethod.GET)
+	    public ResponseEntity<Void> homePage1() {
+
+	        return new ResponseEntity<Void>(HttpStatus.OK);
+	    }
+	
 	 @RequestMapping(value = "/user", method = RequestMethod.POST)
 	    public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder){
 		 

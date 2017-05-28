@@ -31,7 +31,7 @@
 							<!-- Button -->
 
 							<div class="col-sm-12 controls">
-								<button id="btn-login" type="input" class="btn btn-success">Login</button>
+								<input id="btn-login" type="submit" class="btn btn-success" ng-click="submit()" value="login">
 							</div>
 						</div>
 
