@@ -11,7 +11,7 @@ angular.module('app').controller(
 					$scope.signup = signup;
 
 					function signup() {
-						$http.post('http://localhost:8080/edsystem/user', $scope.item);
+						$http.post('/edsystem/user', $scope.item);
 						alert("You have been registered!");
 						$window.location.href = '/edsystem/#!/signin';
 					}

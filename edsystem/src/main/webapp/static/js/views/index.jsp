@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html ng-app="app">
 <head>
 <link rel="stylesheet" type="text/css"
@@ -6,21 +5,29 @@
 <link rel="shortcut icon" href="/edsystem/resources/img/favicon.ico"
 	type="image/ico">
 
-<script src="/edsystem/resources/js/jquery.js"></script>
-
-<!--If login or password is incorrect-->
-<c:if test="${not empty msg}">
-	<script type="text/javascript">
+	<!--script type="text/javascript">
 		$(window).on('load', function() {
 			$('#myModal').modal('show');
 		});
-	</script>
-</c:if>
+	</script-->
 
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-static-top">
-		<div class="container"></div>
+	<nav class="navbar navbar-default navbar-static-top"
+		ng-show="isLoggedIn">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#!/home"><span
+				class="glyphicon glyphicon-home"></span> Home</a>
+		</div>
+
+
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#!/signin"><span class="glyphicon glyphicon-log-out"></span>
+						Logout</a></li>
+			</ul>
+		</div>
 	</nav>
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
@@ -47,7 +54,6 @@
 
 	<ng-view> </ng-view>
 
-	<script src="/edsystem/resources/js/bootstrap.min.js"></script>
 	<script src="/edsystem/resources/angular/angular.js"></script>
 	<script src="/edsystem/resources/angular-resource/angular-resource.js"></script>
 	<script src="/edsystem/resources/angular-route/angular-route.js"></script>
@@ -55,5 +61,8 @@
 	<script src="/edsystem/static/js/views/routes.js"></script>
 	<script src="/edsystem/static/js/views/modules/signup/controller.js"></script>
 	<script src="/edsystem/static/js/views/modules/signin/controller.js"></script>
+	<script src="/edsystem/resources/js/jquery.js"></script>
+
+
 </body>
 </html>
