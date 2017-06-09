@@ -520,7 +520,7 @@ angular.module('ngResource', ['ng']).
         'delete': {method: 'DELETE'}
       }
     };
- 
+
     this.$get = ['$http', '$log', '$q', '$timeout', function($http, $log, $q, $timeout) {
 
       var noop = angular.noop,
