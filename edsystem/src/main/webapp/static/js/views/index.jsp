@@ -4,8 +4,8 @@
 	href="/edsystem/resources/css/bootstrap.min.css">
 <link rel="shortcut icon" href="/edsystem/resources/img/favicon.ico"
 	type="image/ico">
-
-	<!--script type="text/javascript">
+<script src="/edsystem/resources/js/jquery.js"></script>
+<!--script type="text/javascript">
 		$(window).on('load', function() {
 			$('#myModal').modal('show');
 		});
@@ -16,17 +16,17 @@
 	<nav class="navbar navbar-default navbar-static-top"
 		ng-show="isLoggedIn">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#!/home"><span
-				class="glyphicon glyphicon-home"></span> Home</a>
-		</div>
-
-
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
-						Logout</a></li>
-			</ul>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<a class="navbar-brand" href="#!/home"><span
+					class="glyphicon glyphicon-home"></span> Home</a>
+				<a class="navbar-brand navbar-right" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+					Logout</a>
+				<!--ul class="nav navbar-nav navbar-right">
+				<li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span>
+						Logout: ${pageContext.request.userPrincipal.name}</a></li>
+			</ul-->
+			</div>
 		</div>
 	</nav>
 	<div class="modal fade" id="myModal" role="dialog">
@@ -63,7 +63,7 @@
 	<script src="/edsystem/static/js/views/routes.js"></script>
 	<script src="/edsystem/static/js/views/modules/signup/controller.js"></script>
 	<script src="/edsystem/static/js/views/modules/signin/controller.js"></script>
-	<script src="/edsystem/resources/js/jquery.js"></script>
+	
 
 
 </body>

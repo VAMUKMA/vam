@@ -7,10 +7,14 @@ angular.module('app').controller('SignInController', [
 		$scope.submit = submit;
 
 		function submit () {
-			$http.post('http://localhost:8080/edsystem/home', $scope.item)
+			$http.post('/edsystem/home', $scope.item)
 				.then(function (response) {
-					$window.location.href = '#!/home';
-				});
+					store.set('token', response.data.token);
+					$window.location.href = '/edsystem/#!/home';
+				})
+				.catch(function (error) {
+					console.log(error);
+				})
 		}
     }
 ]);
