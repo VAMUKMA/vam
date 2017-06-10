@@ -29,7 +29,7 @@ public class UserRestController {
 	
 	 @RequestMapping(value = "/home", method = RequestMethod.POST)
 	    public ResponseEntity<Void> homePage() {
-
+		 	
 	        return new ResponseEntity<Void>(HttpStatus.OK);
 	    }
 	 

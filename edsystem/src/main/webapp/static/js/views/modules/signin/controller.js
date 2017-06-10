@@ -11,10 +11,7 @@ angular.module('app').controller('SignInController', [
 				.then(function (response) {
 					store.set('token', response.data.token);
 					$window.location.href = '/edsystem/#!/home';
-				})
-				.catch(function (error) {
-					console.log(error);
-				})
+				});
 		}
     }
 ]);

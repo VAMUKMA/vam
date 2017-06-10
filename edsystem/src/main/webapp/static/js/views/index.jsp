@@ -54,10 +54,10 @@
 
 	<ng-view> </ng-view>
 
-	<script src="/edsystem/resources/js/angular.js"></script>
+	<script src="webjars/angularjs/1.6.4/angular.js"></script>
+	<script src="webjars/angularjs/1.6.4/angular-resource.js"></script>
+	<script src="webjars/angularjs/1.6.4/angular-route.js"></script>
 	<script src="/edsystem/resources/js/store/dist/store.legacy.min.js"></script>
-	<script src="/edsystem/resources/js/angular-resource.js"></script>
-	<script src="/edsystem/resources/js/angular-route.js"></script>
 	<script src="/edsystem/static/js/views/authentication.js"></script>
 	<script src="/edsystem/static/js/views/main.js"></script>
 	<script src="/edsystem/static/js/views/routes.js"></script>
