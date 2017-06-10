@@ -1,0 +1,32 @@
+.body {
+	background: #D3D3D3;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+p {
+	margin-left: 20px;
+}
+
+.course-active {
+	background: #8B8989;
+	margin: 5px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	height: 40px;
+	line-height: 40px;
+}
+
+.progress-bar { 
+    line-height: 40px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.course {
+	background: #CDC9C9;
+	margin: 5px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	height: 40px;
+	line-height: 40px;
+}
