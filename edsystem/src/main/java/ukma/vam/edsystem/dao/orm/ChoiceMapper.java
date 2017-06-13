@@ -15,12 +15,9 @@ public class ChoiceMapper implements RowMapper<Choice>{
 		Choice choice = new Choice();
 		
 		choice.setCh_id(rs.getLong("ch_id"));
-		choice.setText(rs.getString("choices.text"));
+		choice.setText(rs.getString("text"));
 		choice.setCorrect(rs.getBoolean("correct"));
 		choice.setQuestionId(rs.getLong("q_id"));
-		if(rs.getString("question.text") != null){
-			choice.setQuestionText(rs.getString("question.text"));
-		}
 		
 		return choice;
 	}

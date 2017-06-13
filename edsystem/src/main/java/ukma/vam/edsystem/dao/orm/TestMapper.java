@@ -15,7 +15,7 @@ public class TestMapper implements RowMapper<Tests>{
 		Tests test = new Tests();
 		
 		test.setTest_id(rs.getLong("test_id"));
-		test.setName(rs.getString("tests.name"));
+		test.setName(rs.getString("name"));
 		test.setChapterId(rs.getLong("chapter_id"));
 		
 		return test;

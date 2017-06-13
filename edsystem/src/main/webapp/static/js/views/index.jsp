@@ -1,5 +1,6 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html ng-app="app">
 <head>
@@ -17,13 +18,11 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<a class="navbar-brand" href="#!/home"><span
-						class="glyphicon glyphicon-home"></span> Home</a> <a
-						class="navbar-brand navbar-right"><span
-						class="glyphicon glyphicon-log-out"></span> Logout</a>
-					<!--ul class="nav navbar-nav navbar-right">
-				<li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span>
+						class="glyphicon glyphicon-home"></span> Home</a>
+					<ul class="nav navbar-nav navbar-right">
+				<li><a href="<c:url value='/logout'/>"><span class="glyphicon glyphicon-log-out"></span>
 						Logout: ${pageContext.request.userPrincipal.name}</a></li>
-			</ul-->
+			</ul>
 				</div>
 			</div>
 		</nav>

@@ -33,6 +33,12 @@ public class LoginController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String homePage() {
+
+        return "index";
+    }
+	
 	/**
 	 * Deny page - if authenticated users go to page, which is designed for
 	 * another role.

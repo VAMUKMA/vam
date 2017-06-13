@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <c:if test="${not empty msg}">
 	<script type="text/javascript">
@@ -7,6 +9,7 @@
 		});
 	</script>
 </c:if>
+
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog">
 
@@ -29,6 +32,8 @@
 
 	</div>
 </div>
+
+<sec:authorize access="isAnonymous()">
 <div class="container">
 	<div id="loginbox" style="margin-top: 150px;"
 		class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -40,7 +45,7 @@
 			<div style="padding-top: 30px" class="panel-body">
 
 				<form id="loginform" class="form-horizontal"
-					action="/j_spring_security_check">
+					action="<c:url value='j_spring_security_check' />" method="post">
 
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
@@ -79,3 +84,4 @@
 		</div>
 	</div>
 </div>
+</sec:authorize>

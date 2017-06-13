@@ -15,12 +15,9 @@ public class ChapterMapper implements RowMapper<Chapter>{
 		Chapter chapter = new Chapter();
 		
 		chapter.setChapter_id(rs.getLong("chapter_id"));
-		chapter.setName(rs.getString("chapter.name"));
+		chapter.setName(rs.getString("name"));
 		chapter.setText(rs.getString("text"));
-		chapter.setThemeId(rs.getLong("theme_id"));	
-		if(rs.getString("theme.name") != null){
-			chapter.setThemeName(rs.getString("theme.name"));
-		}
+		chapter.setThemeId(rs.getLong("theme_id"));
 		
 		return chapter;
 	}

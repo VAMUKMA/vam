@@ -1,7 +1,9 @@
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <link rel="stylesheet" type="text/css"
 	href="/edsystem/static/js/views/modules/home/style.css">
 
-
+<sec:authorize access="hasRole('user')">
 <div class="row">
 	<div class="col-md-12 body">
 		<div class="row course-active">
@@ -45,3 +47,4 @@
 		</div>
 	</div>
 </div>
+</sec:authorize>
