@@ -32,6 +32,7 @@
 	</div>
 
 	<script src="webjars/angularjs/1.6.4/angular.js"></script>
+	<script src="webjars/angularjs/1.6.4/angular-animate.js"></script>
 	<script src="webjars/angularjs/1.6.4/angular-resource.js"></script>
 	<script src="webjars/angularjs/1.6.4/angular-route.js"></script>
 	<script src="/edsystem/static/js/views/main.js"></script>

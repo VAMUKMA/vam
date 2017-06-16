@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<link rel="stylesheet" type="text/css" href="/edsystem/static/js/views/modules/signin/style.css">
 
 <c:if test="${not empty msg}">
 	<script type="text/javascript">
@@ -37,8 +38,8 @@
 <div class="container">
 	<div id="loginbox" style="margin-top: 150px;"
 		class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-		<div class="panel panel-info">
-			<div class="panel-heading">
+		<div class="panel panel-info view-container">
+			<div class="panel-heading view">
 				<div class="panel-title">Sign In</div>
 			</div>
 
