@@ -36,4 +36,6 @@ public interface ThemeService {
 	public List<Choice> getChoicesByQuestion(Long question_id);
 	
 	public void addChoice(String text, boolean correct, Long q_id) throws SQLException;
+	
+	public List<Choice> getChoices(Long test_id);
 }

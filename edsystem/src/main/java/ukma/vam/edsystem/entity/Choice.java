@@ -76,4 +76,15 @@ public class Choice {
 	public String getQuestionText(){
 		return question.getText();
 	}
+	
+	public void setTestName(String name){
+		if(question==null){
+			question = new Question();
+		}
+		question.setTestName(name);
+	}
+	
+	public String getTestName(){
+		return question.getTestName();
+	}
 }

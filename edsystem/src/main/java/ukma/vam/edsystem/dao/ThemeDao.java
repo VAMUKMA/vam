@@ -42,4 +42,6 @@ public interface ThemeDao {
 	public void updateTheme(int count, Long theme_id) throws SQLException;
 	
 	public void deleteChoice(Long id) throws SQLException;
+	
+	public List<Choice> getChoices(Long test_id);
 }

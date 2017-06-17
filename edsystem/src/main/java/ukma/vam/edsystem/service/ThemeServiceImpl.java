@@ -106,4 +106,8 @@ public class ThemeServiceImpl implements ThemeService{
 		themeDao.addChoice(choice);
 	}
 
+	@Override
+	public List<Choice> getChoices(Long test_id) {
+		return themeDao.getChoices(test_id);
+	}
 }

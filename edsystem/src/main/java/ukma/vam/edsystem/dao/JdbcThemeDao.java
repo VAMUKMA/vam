@@ -54,6 +54,8 @@ public class JdbcThemeDao implements ThemeDao{
 	
 	private static final String SQL_DELETE_CHOICE = "DELETE FROM choices WHERE ch_id = ?";
 	
+	private static final String SQL_GET_CHOICES = "SELECT choices.text as ch_text, choices.ch_id, correct, choices.q_id, question.text as q_text, tests.name as test_name FROM (tests INNER JOIN question ON tests.test_id=question.test_id) INNER JOIN choices ON question.q_id=choices.q_id WHERE tests.test_id=?";
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -192,6 +194,11 @@ public class JdbcThemeDao implements ThemeDao{
 		ps.setLong(1, id);
 		ps.executeUpdate();
 		ps.close();
+	}
+	
+	@Override
+	public List<Choice> getChoices(Long test_id) {
+		return jdbcTemplate.query(SQL_GET_CHOICES, new ChoiceMapper(), test_id);
 	}
 	
 }
