@@ -17,12 +17,15 @@
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<a class="navbar-brand" href="#!/home"><span
+					<a class="navbar-brand" href="#!/main"><span
 						class="glyphicon glyphicon-home"></span> Home</a>
+						<a class="navbar-brand" href="#!/home"><span
+						class="glyphicon glyphicon-education"></span> Lessons</a>
 					<ul class="nav navbar-nav navbar-right">
-				<li><a href="<c:url value='/logout'/>"><span class="glyphicon glyphicon-log-out"></span>
-						Logout: ${pageContext.request.userPrincipal.name}</a></li>
-			</ul>
+						<li><a href="<c:url value='/logout'/>"><span
+								class="glyphicon glyphicon-log-out"></span> Logout:
+								${pageContext.request.userPrincipal.name}</a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
