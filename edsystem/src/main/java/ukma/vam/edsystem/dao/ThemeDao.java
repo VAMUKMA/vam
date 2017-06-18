@@ -3,6 +3,7 @@ package ukma.vam.edsystem.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import ukma.vam.edsystem.entity.Answer;
 import ukma.vam.edsystem.entity.Chapter;
 import ukma.vam.edsystem.entity.Choice;
 import ukma.vam.edsystem.entity.Question;
@@ -44,4 +45,12 @@ public interface ThemeDao {
 	public void deleteChoice(Long id) throws SQLException;
 	
 	public List<Choice> getChoices(Long test_id);
+	
+	public List<Answer> getUserAnswersByTheme(Long user_id, Long theme_id);
+	
+	public List<Tests> getTestsByChapterName(String name);
+	
+	public Chapter getChapterByName(String name);
+	
+	public void addAnswer(Answer answer) throws SQLException;
 }

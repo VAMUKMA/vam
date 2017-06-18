@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ukma.vam.edsystem.dao.ThemeDao;
+import ukma.vam.edsystem.entity.Answer;
 import ukma.vam.edsystem.entity.Chapter;
 import ukma.vam.edsystem.entity.Choice;
 import ukma.vam.edsystem.entity.Question;
@@ -110,4 +111,46 @@ public class ThemeServiceImpl implements ThemeService{
 	public List<Choice> getChoices(Long test_id) {
 		return themeDao.getChoices(test_id);
 	}
+
+	@Override
+	public double getUserMarkByTheme(Long user_id, Long theme_id) {
+		
+		Theme theme = themeDao.getThemeById(theme_id);
+		
+		if(theme.getCount_question()==0)
+			return 0;
+		
+		List<Answer> answers = themeDao.getUserAnswersByTheme(user_id, theme_id);
+		double current_mark = 0;
+		
+		for(Answer answer: answers){
+			if(answer.isChoiceCorrect())
+				current_mark++;
+		}
+		
+		if(current_mark/theme.getCount_question()>100)
+			return 100;
+		
+		return current_mark/theme.getCount_question();
+	}
+
+	@Override
+	public List<Tests> getTestsByChapterName(String name) {
+		return themeDao.getTestsByChapterName(name);
+	}
+
+	@Override
+	public Chapter getChapterByName(String name) {
+		return themeDao.getChapterByName(name);
+	}
+
+	@Override
+	public void addAnswer(Long ch_id, Long user_id) throws SQLException {
+		Answer answer = new Answer();
+		answer.setChoice_id(ch_id);
+		answer.setUser_id(user_id);
+		
+		themeDao.addAnswer(answer);
+	}
+
 }

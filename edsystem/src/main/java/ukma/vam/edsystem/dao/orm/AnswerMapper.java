@@ -16,11 +16,8 @@ public class AnswerMapper implements RowMapper<Answer>{
 		Answer answer = new Answer();
 		
 		answer.setAnswer_id(rs.getLong("answer_id"));
-		answer.setUser_id(rs.getLong("user_id"));
-		answer.setUserEmail(rs.getString("email"));
 		answer.setChoice_id(rs.getLong("ch_id"));
-		answer.setChoiceText(rs.getString("ch_text"));
-		answer.setQuestionText(rs.getString("q_text"));
+		answer.setChoiceText(rs.getString("text"));
 		answer.setChoiceCorrect(rs.getBoolean("correct"));
 		
 		return answer;

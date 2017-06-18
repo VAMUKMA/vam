@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import ukma.vam.edsystem.dao.orm.AnswerMapper;
 import ukma.vam.edsystem.dao.orm.ChapterMapper;
 import ukma.vam.edsystem.dao.orm.ChoiceMapper;
 import ukma.vam.edsystem.dao.orm.QuestionMapper;
 import ukma.vam.edsystem.dao.orm.TestMapper;
 import ukma.vam.edsystem.dao.orm.ThemeMapper;
+import ukma.vam.edsystem.entity.Answer;
 import ukma.vam.edsystem.entity.Chapter;
 import ukma.vam.edsystem.entity.Choice;
 import ukma.vam.edsystem.entity.Question;
@@ -31,6 +33,8 @@ public class JdbcThemeDao implements ThemeDao{
 	private static final String SQL_INSERT_QUESTION = "INSERT INTO question(text, test_id) VALUES (?, ?)";
 
 	private static final String SQL_INSERT_CHOICE = "INSERT INTO choices(text, correct, q_id) VALUES (?, ?, ?)";
+	
+	private static final String SQL_INSERT_ANSWER = "INSERT INTO answer(ch_id, user_id) VALUES (?, ?)";
 
 	private static final String SQL_GET_THEMES = "SELECT * FROM theme";
 	
@@ -48,13 +52,15 @@ public class JdbcThemeDao implements ThemeDao{
 
 	private static final String SQL_GET_QUESTIONS_BY_TEST = "SELECT * FROM question WHERE test_id=?";
 
-	private static final String SQL_GET_CHOICES_BY_QUESTION = "SELECT * FROM choices WHERE q_id=?";
+	private static final String SQL_GET_CHOICES_BY_QUESTION = "SELECT choices.text as ch_text, choices.ch_id, correct, choices.q_id, question.text as q_text, tests.name as test_name FROM (tests INNER JOIN question ON tests.test_id=question.test_id) INNER JOIN choices ON question.q_id=choices.q_id WHERE question.q_id=?";
 
 	private static final String SQL_UPDATE_THEME = "UPDATE theme SET count_question = ? WHERE theme_id = ?";
 	
 	private static final String SQL_DELETE_CHOICE = "DELETE FROM choices WHERE ch_id = ?";
 	
 	private static final String SQL_GET_CHOICES = "SELECT choices.text as ch_text, choices.ch_id, correct, choices.q_id, question.text as q_text, tests.name as test_name FROM (tests INNER JOIN question ON tests.test_id=question.test_id) INNER JOIN choices ON question.q_id=choices.q_id WHERE tests.test_id=?";
+	
+	private static final String SQL_GET_USER_ANSWERS_BY_THEME = "SELECT answer_id, answer.ch_id, choices.text, correct FROM ((((chapter INNER JOIN tests ON chapter.chapter_id=tests.chapter_id) INNER JOIN question ON tests.test_id=question.test_id) INNER JOIN choices ON question.q_id=choices.q_id) INNER JOIN answer ON choices.ch_id=answer.ch_id) INNER JOIN users ON answer.user_id=users.user_id WHERE users.user_id=? AND chapter.theme_id=?";
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -195,10 +201,37 @@ public class JdbcThemeDao implements ThemeDao{
 		ps.executeUpdate();
 		ps.close();
 	}
-	
+
 	@Override
 	public List<Choice> getChoices(Long test_id) {
 		return jdbcTemplate.query(SQL_GET_CHOICES, new ChoiceMapper(), test_id);
+	}
+
+	@Override
+	public List<Answer> getUserAnswersByTheme(Long user_id, Long theme_id) {
+		return jdbcTemplate.query(SQL_GET_USER_ANSWERS_BY_THEME, new AnswerMapper(), user_id, theme_id);
+	}
+
+	@Override
+	public List<Tests> getTestsByChapterName(String name) {
+		String SQL_GET_TESTS_BY_CHAPTER_NAME = "SELECT * FROM tests INNER JOIN chapter ON tests.chapter_id=chapter.chapter_id WHERE chapter.name='"+name+"'";
+		return jdbcTemplate.query(SQL_GET_TESTS_BY_CHAPTER_NAME, new TestMapper());
+	}
+
+	@Override
+	public Chapter getChapterByName(String name) {
+		String SQL_GET_CHAPTER_BY_NAME = "SELECT * FROM chapter WHERE name='"+name+"'";
+		return jdbcTemplate.queryForObject(SQL_GET_CHAPTER_BY_NAME, new ChapterMapper());
+	}
+
+	@Override
+	public void addAnswer(Answer answer) throws SQLException {
+		
+		PreparedStatement ps = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_INSERT_ANSWER);
+		ps.setLong(1, answer.getChoice_id());
+		ps.setLong(2, answer.getUser_id());
+		ps.executeUpdate();
+		ps.close();
 	}
 	
 }
