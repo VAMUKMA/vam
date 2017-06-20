@@ -8,6 +8,8 @@ public class Theme{
 	
 	private int count_question;
 	
+	private Double completeness;
+	
 	public Theme(){
 	}
 	
@@ -38,6 +40,14 @@ public class Theme{
 
 	public void setCount_question(int count_question) {
 		this.count_question = count_question;
+	}
+
+	public Double getCompleteness() {
+		return completeness;
+	}
+
+	public void setCompleteness(Double completeness) {
+		this.completeness = completeness;
 	}
 	
 }

@@ -3,6 +3,7 @@ package ukma.vam.edsystem.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import ukma.vam.edsystem.entity.Answer;
 import ukma.vam.edsystem.entity.Chapter;
 import ukma.vam.edsystem.entity.Choice;
 import ukma.vam.edsystem.entity.Question;
@@ -38,4 +39,12 @@ public interface ThemeService {
 	public void addChoice(String text, boolean correct, Long q_id) throws SQLException;
 	
 	public List<Choice> getChoices(Long test_id);
+	
+	public double getUserMarkByTheme(Long user_id, Long theme_id);
+	
+	public List<Tests> getTestsByChapterName(String name);
+	
+	public Chapter getChapterByName(String name);
+	
+	public void addAnswer(Long ch_id, Long user_id) throws SQLException;
 }
