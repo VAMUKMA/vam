@@ -41,6 +41,10 @@
 	<script src="/edsystem/static/js/views/main.js"></script>
 	<script src="/edsystem/static/js/views/routes.js"></script>
 	<script src="/edsystem/static/js/views/modules/signup/controller.js"></script>
+	<script src="/edsystem/static/js/views/modules/home/service.js"></script>
+	<script src="/edsystem/static/js/views/modules/home/controller.js"></script>
+	<script src="/edsystem/static/js/views/modules/home/find/service.js"></script>
+	<script src="/edsystem/static/js/views/modules/home/chapters/controller.js"></script>
 
 </body>
 </html>
